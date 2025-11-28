@@ -10,8 +10,7 @@ chmod 700 ~/.ssh/id_ed25519
 # Cloning dotfiles repo
 git clone --bare git@github.com:epictris/.dotfiles $HOME/.dotfiles
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME pull origin main
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-config submodule update --init --recursive --remote --merge
+/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --init --recursive --remote --merge
 sudo dnf install -y zsh alacritty neovim fzf chromium crudini
 sudo chsh -s $(which zsh) $USER
 
