@@ -10,6 +10,7 @@ chmod 700 ~/.ssh/id_ed25519
 # Cloning dotfiles repo
 git clone --bare git@github.com:epictris/.dotfiles $HOME/.dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+config pull
 config submodule update --init --recursive --remote --merge
 sudo dnf install -y zsh alacritty neovim fzf chromium crudini
 sudo chsh -s $(which zsh) $USER
@@ -19,7 +20,6 @@ sudo rm -r /usr/share/sddm/themes/minimal
 sudo cp -r $HOME/.config/sddm-theme/minimal /usr/share/sddm/themes
 [ ! -f /etc/sddm.conf.backup ] && sudo cp /etc/sddm.conf /etc/sddm.conf.backup
 sudo crudini --set /etc/sddm.conf Theme Current minimal
-
 
 # Clean up GRUB boot menu
 [ ! -f /etc/default/grub.backup ] && sudo cp /etc/default/grub /etc/default/grub.backup
