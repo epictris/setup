@@ -7,6 +7,7 @@ sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https:/
 sudo dnf install -y 1password 1password-cli git
 eval $(op signin)
 op read op://personal/lpvmy5zudeushql4arboiunyhm/'private key' > ~/.ssh/id_ed25519
+op read op://personal/lpvmy5zudeushql4arboiunyhm/'public key' > ~/.ssh/id_ed25519.pub
 chmod 700 ~/.ssh/id_ed25519
 
 echo 'Cloning dotfiles repo'
