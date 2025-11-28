@@ -17,6 +17,7 @@ sudo chsh -s $(which zsh) $USER
 # Installing minimal SDDM theme
 sudo rm -r /usr/share/sddm/themes/minimal
 sudo cp -r $HOME/.config/sddm-theme/minimal /usr/share/sddm/themes
+sudo cp $HOME/.config/background.jpg /usr/share/backgrounds/background.jpg
 [ ! -f /etc/sddm.conf.backup ] && sudo cp /etc/sddm.conf /etc/sddm.conf.backup
 sudo crudini --set /etc/sddm.conf Theme Current minimal
 
