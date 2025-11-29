@@ -10,7 +10,7 @@ sudo dnf install -y 1password 1password-cli git
 
 # Fix 1Password ptrace scope issue on Fedora (https://support.1password.com/linux-ptrace-scope-issue)
 sudo sed -i '/^kernel.yama.ptrace_scope/d' /etc/sysctl.conf
-sudo sysctl -w kernel.yama.ptrace_scope=1 | tee -a /etc/sysctl.conf
+sudo sysctl -w kernel.yama.ptrace_scope=1 | sudo tee -a /etc/sysctl.conf
 
 # Authenticate with 1Password
 eval $(op signin)
@@ -39,6 +39,6 @@ sudo crudini --set /etc/sddm.conf Theme Current minimal
 [ ! -f /etc/default/grub.backup ] && sudo cp /etc/default/grub /etc/default/grub.backup
 sudo sed -i '/^GRUB_TIMEOUT=/d' /etc/default/grub
 sudo sed -i '/^GRUB_TIMEOUT_STYLE=/d' /etc/default/grub
-sudo echo 'GRUB_TIMEOUT=3' | tee -a /etc/default/grub
-sudo echo 'GRUB_TIMEOUT_STYLE=hidden' | tee -a /etc/default/grub
+sudo echo 'GRUB_TIMEOUT=3' | sudo tee -a /etc/default/grub
+sudo echo 'GRUB_TIMEOUT_STYLE=hidden' | sudo tee -a /etc/default/grub
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
