@@ -21,7 +21,7 @@ sudo dnf install -y zsh neovim fzf chromium crudini yazi
 sudo chsh -s $(which zsh) $USER
 
 # Clone dotfiles repo
-git clone --bare git@github.com:epictris/.dotfiles $HOME/.dotfiles 2>/dev/null
+[ ! -f ~$HOME/.dotfiles ] && git clone --bare git@github.com:epictris/.dotfiles $HOME/.dotfiles 2>/dev/null
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME pull origin main
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --init --recursive --remote --merge
 
